@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>برای نجمه ✨</title>
+  <style>
+    :root{
+      --bg1:#0b1020;
+      --bg2:#1b2a4a;
+      --card: rgba(255,255,255,0.10);
+      --text: #ffffff;
+      --muted: rgba(255,255,255,0.75);
+      --accent:#ff5fa2;
+      --accent2:#7cf3ff;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family: system-ui, -apple-system, "Segoe UI", Tahoma, sans-serif;
+      color:var(--text);
+      background: radial-gradient(1200px 800px at 20% 20%, #243b7a 0%, transparent 55%),
+                  radial-gradient(900px 700px at 80% 30%, #7a2456 0%, transparent 55%),
+                  linear-gradient(160deg, var(--bg1), var(--bg2));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      overflow-x:hidden;
+    }
+    .wrap{
+      width:min(720px, 100%);
+      position:relative;
+    }
+    .card{
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.16);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      padding: 28px 22px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      position:relative;
+      overflow:hidden;
+    }
+    .glow{
+      position:absolute;
+      inset:-120px;
+      background: radial-gradient(circle at 20% 20%, rgba(255,95,162,0.35), transparent 45%),
+                  radial-gradient(circle at 80% 30%, rgba(124,243,255,0.25), transparent 40%),
+                  radial-gradient(circle at 50% 90%, rgba(255,255,255,0.08), transparent 50%);
+      filter: blur(18px);
+      pointer-events:none;
+    }
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(26px, 4vw, 40px);
+      letter-spacing: .2px;
+    }
+    .subtitle{
+      margin:0 0 18px;
+      color:var(--muted);
+      line-height:1.8;
+      font-size: 15.5px;
+    }
+    .name{
+      display:inline-block;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(255,95,162,0.18);
+      border: 1px solid rgba(255,95,162,0.35);
+      color:#ffd1e5;
+      font-weight:700;
+    }
+    .btnrow{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+    button{
+      border:none;
+      border-radius: 14px;
+      padding: 12px 16px;
+      font-size: 15px;
+      cursor:pointer;
+      transition: transform .12s ease, filter .12s ease, box-shadow .12s ease;
+      font-weight:650;
+    }
+    .primary{
+      background: linear-gradient(135deg, var(--accent), #ff8cc3);
+      color:#1a0820;
+      box-shadow: 0 12px 28px rgba(255,95,162,0.25);
+    }
+    .secondary{
+      background: rgba(124,243,255,0.15);
+      border: 1px solid rgba(124,243,255,0.28);
+      color: #d9fbff;
+    }
+    button:hover{ transform: translateY(-1px); filter: brightness(1.03); }
+    button:active{ transform: translateY(1px); }
+
+    .msg{
+      margin-top:18px;
+      padding:16px;
+      border-radius:18px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.18);
+      line-height: 2.0;
+      display:none;
+      position:relative;
+    }
+    .msg.show{ display:block; animation: pop .35s ease; }
+    @keyframes pop{ from{ transform: scale(.98); opacity:.0 } to{ transform: scale(1); opacity:1 } }
+
+    .signature{
+      margin-top: 16px;
+      color: rgba(255,255,255,0.85);
+      font-weight:700;
+    }
+    .hearts{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      overflow:hidden;
+    }
+    .heart{
+      position:absolute;
+      bottom:-30px;
+      font-size: 18px;
+      opacity: .0;
+      animation: floatUp 3.2s ease-in forwards;
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.35));
+    }
+    @keyframes floatUp{
+      0%{ transform: translateY(0) scale(.9); opacity:0 }
+      10%{ opacity:.95 }
+      100%{ transform: translateY(-120vh) scale(1.25); opacity:0 }
+    }
+
+    .footer{
+      text-align:center;
+      margin-top:14px;
+      color: rgba(255,255,255,0.55);
+      font-size: 12.5px;
+    }
+    .tiny{
+      color: rgba(255,255,255,0.7);
+      font-size: 12.5px;
+      margin-top: 10px;
+      line-height:1.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="glow"></div>
+      <div class="hearts" id="hearts"></div>
+
+      <h1>سلام <span class="name">نجمه عزیزم</span> ✨</h1>
+      <p class="subtitle">
+        این صفحه یه چیز کوچیکه… ولی پشتش یه حرف جدی قایم شده 🙂
+        <br/>
+        وقتی آماده بودی، دکمه‌ی پایین رو بزن.
+      </p>
+
+      <div class="btnrow">
+        <button class="primary" id="revealBtn">سوپرایز من برای تو 💗</button>
+        <button class="secondary" id="againBtn" style="display:none;">دوباره قلب‌ها! 😄</button>
+      </div>
+
+      <div class="msg" id="msg">
+        <div style="font-size:17px; font-weight:750; margin-bottom:8px;">
+          نجمه عزیزم…
+        </div>
+        <div>
+          شاید ساده بگم بهتر باشه:
+          <br/>
+          <b>من دوستت دارم.</b>
+          <br/>
+          بودنِ تو برای من قشنگه؛
+          حرف زدنت، لبخندت، حتی فکر کردن بهت یه آرامش خاص می‌ده.
+          <br/><br/>
+          نمی‌خوام شعار بدم… فقط خواستم بدونی
+          <b>تو برام مهمی</b> و از تهِ دل خوشحالم که توی زندگیم هستی.
+        </div>
+        
+        <div class="tiny">
+          (این پیام فقط مخصوص توئه. همین که دیدیش، لبخند بزنی برای من کافیه.)
+        </div>
+      </div>
+
+      <div class="footer">💫 با یه لبخند بازش کن 💫</div>
+    </div>
+  </div>
+
+  <script>
+    const revealBtn = document.getElementById('revealBtn');
+    const againBtn  = document.getElementById('againBtn');
+    const msg       = document.getElementById('msg');
+    const heartsBox = document.getElementById('hearts');
+
+    function spawnHearts(count=18){
+      const emojis = ["💗","💖","💘","💞","❤️","✨","💫"];
+      for(let i=0;i<count;i++){
+        const s = document.createElement('span');
+        s.className = 'heart';
+        s.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+        const left = Math.random()*100;
+        const delay = Math.random()*0.6;
+        const size = 16 + Math.random()*16;
+        s.style.left = left + '%';
+        s.style.animationDelay = delay + 's';
+        s.style.fontSize = size + 'px';
+        heartsBox.appendChild(s);
+        setTimeout(()=> s.remove(), 3600);
+      }
+    }
+
+    revealBtn.addEventListener('click', ()=>{
+      msg.classList.add('show');
+      revealBtn.style.display = 'none';
+      againBtn.style.display = 'inline-block';
+      spawnHearts(28);
+      msg.scrollIntoView({behavior:'smooth', block:'center'});
+    });
+
+    againBtn.addEventListener('click', ()=> spawnHearts(22));
+  </script>
+</body>
+</html>
